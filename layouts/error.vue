@@ -12,11 +12,9 @@
                 text-2xl
                 lg:text-3xl
                 xl:text-4xl
-                text-green-500
                 tracking-tight
                 leading-tight
                 lg:leading-none
-                font-light
                 richText
                 font-bold
               "
@@ -54,22 +52,11 @@
                     justify-center
                     items-center
                     text-white
-                    bg-green-500
                   "
                 >
                   {{ homepageLink.text }}
                 </div>
               </whppt-link>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="absolute w-full z-1 bottom-0">
-        <div class="container flex justify-between items-center mb-8">
-          <div class="w-full flex items-center justify-between">
-            <div class="flex items-center flex-wrap text-xs lg:text-base">
-              <whppt-link :to="homepageLink" class="font-bold border-b mb-2 border-green-500">Home</whppt-link>
-              <div class="border-b border-transparent mb-2">&nbsp;/&nbsp;{{ title }}</div>
             </div>
           </div>
         </div>
@@ -117,8 +104,7 @@ export default {
       return get(this, 'error.message'); // developer error message
     },
     content() {
-      if (this.statusCode === 404)
-        return 'Something went wrong. That’s ok, simply click on the back to homepage button to begin your journey again.';
+      if (this.statusCode === 404) return 'The requested URL was not found.';
       if (process.env.NODE_ENV !== 'development') return '';
 
       const axiosStack = get(this, 'error.request.response');
